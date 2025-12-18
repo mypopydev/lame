@@ -1,4 +1,5 @@
 /*
+#include <locale.h>
  *      Command line parsing related functions
  *
  *      Copyright (c) 1999 Mark Taylor
@@ -71,6 +72,7 @@ char   *strchr(), *strrchr();
 #include <iconv.h>
 #include <errno.h>
 #ifdef HAVE_LANGINFO_H
+#include <locale.h>
 #include <locale.h>
 #include <langinfo.h>
 #endif
@@ -189,6 +191,7 @@ static char*
 currentCharacterEncoding()
 {
 #ifdef HAVE_LANGINFO_H
+#include <locale.h>
     char* cur_code = nl_langinfo(CODESET);
 #else
     char* env_lang = getenv("LANG");
@@ -1620,6 +1623,7 @@ parse_args_(lame_global_flags * gfp, int argc, char **argv,
 #endif
 
 #ifdef HAVE_LANGINFO_H
+#include <locale.h>
     setlocale(LC_CTYPE, "");
 #endif
     inPath[0] = '\0';
